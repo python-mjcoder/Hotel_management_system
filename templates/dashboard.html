@@ -1,0 +1,38 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard | HMS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Dashboard</h2>
+        <p>Welcome, {{ user.username }}</p>
+
+        <h3>Your Bookings:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Check-In</th>
+                    <th>Check-Out</th>
+                    <th>Room Type</th>
+                    <th>Rooms</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.city }}</td>
+                    <td>{{ booking.check_in_date }}</td>
+                    <td>{{ booking.check_out_date }}</td>
+                    <td>{{ booking.room_type }}</td>
+                    <td>{{ booking.room_count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
